@@ -27,15 +27,24 @@ Platform forum komunitas untuk berbagi, melaporkan, dan mendiskusikan isu-isu an
 ### Prerequisites
 
 - Node.js 18+ (atau pnpm/npm/yarn)
-- PostgreSQL database (Neon recommended)
+- PostgreSQL database (Neon recommended - cloud-based)
 - Vercel account (untuk deployment)
 
-### Installation
+### Pilihan Setup
+
+Pilih salah satu sesuai kebutuhan Anda:
+
+1. **[QUICKSTART.md](./QUICKSTART.md)** - Setup lokal di komputer/laptop (RECOMMENDED untuk development)
+2. **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Deploy ke Vercel dengan custom domain (RECOMMENDED untuk production)
+3. **[TERMUX_SETUP.md](./TERMUX_SETUP.md)** - Setup di Android Termux sebagai server (untuk development/testing)
+4. **[GITHUB_SETUP.md](./GITHUB_SETUP.md)** - Push ke GitHub repository
+
+### Installation Cepat (Development)
 
 1. Clone repository:
 ```bash
 git clone <repository-url>
-cd anti-penyimpangan
+cd anti-penyimpangan-forum
 ```
 
 2. Install dependencies:
@@ -46,7 +55,21 @@ pnpm install
 3. Setup environment variables:
 ```bash
 cp .env.example .env.local
+# Edit dengan credentials dari Neon & Vercel Blob
+nano .env.local
 ```
+
+4. Build project:
+```bash
+pnpm build
+```
+
+5. Run server:
+```bash
+pnpm start
+```
+
+6. Buka browser: `http://localhost:3000`
 
 Isi environment variables:
 - `DATABASE_URL`: PostgreSQL connection string dari Neon

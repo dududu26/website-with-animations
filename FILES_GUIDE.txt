@@ -1,0 +1,269 @@
+================================================================================
+                    FORUM ANTI PENYIMPANGAN - FILES GUIDE
+================================================================================
+
+📚 DOCUMENTATION FILES (Read These First!)
+════════════════════════════════════════════════════════════════════════════════
+
+🔴 SETUP_GUIDE.md ⭐ START HERE
+   ├─ Overview semua pilihan setup
+   ├─ Comparison matrix
+   ├─ Recommended flow
+   └─ Decision guide untuk scenario berbeda
+
+🔴 QUICKSTART.md ⭐ UNTUK DEVELOPMENT LOKAL
+   ├─ 5 menit setup (komputer/laptop)
+   ├─ Prerequisites
+   ├─ Installation steps
+   ├─ Troubleshooting
+   └─ Setelah setup, next steps
+
+🔴 TERMUX_SETUP.md ⭐ UNTUK ANDROID TERMUX
+   ├─ Detailed Termux installation
+   ├─ Semua dependencies
+   ├─ Step-by-step setup
+   ├─ Keep server running 24/7
+   ├─ Network configuration
+   └─ Troubleshooting Termux issues
+
+🔴 TERMUX_CHEATSHEET.md (Quick Reference)
+   ├─ One-liner commands untuk Termux
+   ├─ Common commands quick reference
+   ├─ Daily operations
+   └─ Quick fixes
+
+📘 README.md
+   ├─ Project overview
+   ├─ Tech stack details
+   ├─ Features lengkap
+   ├─ Setup options
+   └─ Architecture diagram
+
+📘 DEPLOYMENT.md
+   ├─ Deploy ke Vercel (production)
+   ├─ Setup custom domain
+   ├─ Environment variables
+   ├─ Monitoring & logs
+   └─ Scaling untuk growth
+
+📘 GITHUB_SETUP.md
+   ├─ Create GitHub repository
+   ├─ Push code ke GitHub
+   ├─ GitHub Actions (optional)
+   └─ Collaboration setup
+
+📘 PROJECT_SUMMARY.md
+   ├─ Architecture overview
+   ├─ Database schema
+   ├─ API endpoints list
+   ├─ Component structure
+   └─ Tech details
+
+.env.example
+   ├─ Template untuk environment variables
+   ├─ Copy ke .env.local sebelum running
+   └─ Fill dengan credentials dari Neon & Vercel
+
+================================================================================
+📁 SOURCE CODE FILES
+════════════════════════════════════════════════════════════════════════════════
+
+/app - Pages & Layouts
+  ├─ layout.tsx                    → Root layout + metadata
+  ├─ page.tsx                      → Home page (forum feed)
+  ├─ globals.css                   → Global styles + design tokens
+  ├─ /auth/login/page.tsx          → Login page
+  ├─ /auth/register/page.tsx       → Register page
+  ├─ /forum/new/page.tsx           → Create new post page
+  ├─ /forum/[id]/page.tsx          → View post detail + comments
+  ├─ /dashboard/page.tsx           → User dashboard
+  └─ /api/* - API Routes (15+ endpoints)
+     ├─ /api/auth/[...all]/route.ts         → Auth handler (Better Auth)
+     ├─ /api/auth/check-ip/route.ts         → IP validation endpoint
+     ├─ /api/posts/route.ts                 → Get/create posts
+     ├─ /api/posts/[id]/route.ts            → Update/delete post
+     ├─ /api/comments/route.ts              → Get/create comments
+     ├─ /api/comments/[id]/route.ts         → Update/delete comment
+     ├─ /api/reactions/route.ts             → Handle reactions
+     ├─ /api/files/upload/route.ts          → File upload
+     └─ /api/files/[postId]/route.ts        → File management
+
+/components - Reusable React Components
+  ├─ navbar.tsx                    → Navigation bar
+  ├─ post-card.tsx                 → Post card component
+  ├─ comment-section.tsx           → Comments + replies system
+  ├─ reaction-button.tsx           → Reaction selector
+  ├─ file-upload.tsx               → File upload component
+  ├─ animated-elements.tsx         → Framer Motion animations
+  └─ /ui/* - shadcn/ui components (auto-imported)
+
+/lib - Core Logic & Utilities
+  ├─ db.ts                         → Database client setup
+  ├─ schema.ts                     → Drizzle ORM schema (10 tables)
+  ├─ auth.ts                       → Better Auth configuration
+  ├─ ip-validator.ts               → IP validation logic (1 IP = 1 account)
+  └─ blob.ts                       → Vercel Blob client
+
+/hooks - Custom React Hooks
+  └─ use-session.ts                → Session management hook
+
+/db - Database
+  └─ /migrations/ - Auto-generated Drizzle migrations
+
+================================================================================
+⚙️ CONFIGURATION FILES
+════════════════════════════════════════════════════════════════════════════════
+
+package.json               → Dependencies + scripts
+pnpm-lock.yaml            → Lock file (use pnpm)
+next.config.js            → Next.js configuration
+drizzle.config.ts         → Drizzle ORM configuration
+tsconfig.json             → TypeScript configuration
+tailwind.config.js        → Tailwind CSS configuration
+vercel.json               → Vercel deployment configuration
+.gitignore                → Git ignore patterns
+.env.example              → Environment template
+
+================================================================================
+🚀 HOW TO USE THESE FILES
+════════════════════════════════════════════════════════════════════════════════
+
+STEP 1: READ DOCUMENTATION (Choose Your Path)
+  ↓
+  Path A: Development Lokal        → Read QUICKSTART.md (5 min)
+  Path B: Termux Android Server    → Read TERMUX_SETUP.md (15 min)
+  Path C: Production on Cloud      → Read DEPLOYMENT.md (10 min)
+  Path D: All Options              → Read SETUP_GUIDE.md (overview)
+  ↓
+
+STEP 2: INSTALL & RUN
+  ↓
+  Local:   pnpm install → pnpm dev   → http://localhost:3000
+  Termux:  pnpm install → pnpm start → http://192.168.x.x:3000
+  Cloud:   pnpm install → pnpm build → Deploy to Vercel
+  ↓
+
+STEP 3: TEST & DEVELOP
+  ↓
+  Register → Create post → Add comment → Test reactions → Upload file
+  ↓
+
+STEP 4: BACKUP TO GITHUB (Optional)
+  ↓
+  git init → git add . → git commit → push to GitHub
+  ↓
+
+STEP 5: DEPLOY TO PRODUCTION (Optional)
+  ↓
+  Deploy to Vercel → Setup custom domain → Done! 🎉
+
+================================================================================
+📖 QUICK NAVIGATION
+════════════════════════════════════════════════════════════════════════════════
+
+"Saya ingin..."                          "Buka file ini..."
+──────────────────────────────────────────────────────────────────────────────
+...setup lokal di komputer              → QUICKSTART.md
+...setup di Termux Android              → TERMUX_SETUP.md
+...deploy ke production                 → DEPLOYMENT.md
+...lihat overview semua pilihan         → SETUP_GUIDE.md
+...lihat dokumentasi lengkap            → README.md
+...push ke GitHub                       → GITHUB_SETUP.md
+...command cepat Termux                 → TERMUX_CHEATSHEET.md
+...lihat architecture & schema          → PROJECT_SUMMARY.md
+
+================================================================================
+🎯 FIRST 30 MINUTES CHECKLIST
+════════════════════════════════════════════════════════════════════════════════
+
+( ) 1. Baca SETUP_GUIDE.md (5 min) - Pilih path Anda
+( ) 2. Ikuti dokumentasi sesuai path:
+      - Lokal? → QUICKSTART.md (5 min)
+      - Termux? → TERMUX_SETUP.md (15 min)
+      - Cloud? → DEPLOYMENT.md (10 min)
+( ) 3. Install dependencies: pnpm install (3 min)
+( ) 4. Setup .env.local dengan credentials (2 min)
+( ) 5. Run server: pnpm dev atau pnpm start (2 min)
+( ) 6. Buka di browser dan test!
+
+Total: ~30 menit untuk fully setup
+
+================================================================================
+📋 FILE PURPOSES SUMMARY
+════════════════════════════════════════════════════════════════════════════════
+
+Configuration Files (Setup once)
+├─ package.json              → List semua dependencies
+├─ .env.example              → Environment variables template
+├─ drizzle.config.ts         → Database ORM setup
+└─ vercel.json               → Deployment configuration
+
+Documentation Files (Read before start)
+├─ SETUP_GUIDE.md            → Decision guide (pilih path)
+├─ QUICKSTART.md             → Local setup (5 menit)
+├─ TERMUX_SETUP.md           → Termux setup (15 menit)
+├─ DEPLOYMENT.md             → Production setup
+├─ GITHUB_SETUP.md           → Version control
+└─ README.md                 → Project overview
+
+Application Files (Run the app)
+├─ /app/*                    → Pages & API endpoints
+├─ /components/*             → React components
+├─ /lib/*                    → Database & utilities
+└─ /hooks/*                  → Custom hooks
+
+================================================================================
+✅ BEFORE YOU START
+════════════════════════════════════════════════════════════════════════════════
+
+1. Prepare credentials yang Anda butuh:
+   [ ] Neon PostgreSQL URL (dari neon.tech)
+   [ ] Vercel Blob token (dari vercel.com)
+   [ ] Generated BETTER_AUTH_SECRET
+
+2. Choose your setup path:
+   [ ] Lokal development (QUICKSTART.md)
+   [ ] Termux server (TERMUX_SETUP.md)
+   [ ] Cloud production (DEPLOYMENT.md)
+
+3. Have these tools ready:
+   [ ] Node.js 18+ installed
+   [ ] Git installed
+   [ ] Text editor (VS Code recommended)
+   [ ] Terminal/Termux
+
+4. Know your environment:
+   [ ] Internet connection stable
+   [ ] Comfortable with terminal commands
+   [ ] GitHub account (for backup & deployment)
+
+================================================================================
+🆘 STUCK? START HERE
+════════════════════════════════════════════════════════════════════════════════
+
+Error 1: "Don't know where to start"
+→ Open: SETUP_GUIDE.md (choose your path)
+
+Error 2: "Installation failed"
+→ Open: QUICKSTART.md → Troubleshooting section
+
+Error 3: "Server won't start"
+→ Open: TERMUX_CHEATSHEET.md (if Termux) or QUICKSTART.md (if local)
+
+Error 4: "Database connection error"
+→ Check: .env.local has correct DATABASE_URL from Neon
+
+Error 5: "Can't find dependencies"
+→ Run: pnpm install (make sure you're in correct directory)
+
+Error 6: "Deploy to Vercel not working"
+→ Open: DEPLOYMENT.md → Troubleshooting section
+
+================================================================================
+🎉 YOU'RE READY!
+════════════════════════════════════════════════════════════════════════════════
+
+Next step: Open SETUP_GUIDE.md and choose your setup path!
+
+Questions about specific files? Check PROJECT_SUMMARY.md for architecture.
+================================================================================
