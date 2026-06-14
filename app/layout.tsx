@@ -10,8 +10,8 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'Forum Anti Penyimpangan - Komunitas Transparansi dan Integritas',
+  description: 'Platform forum komunitas untuk berbagi, melaporkan, dan mendiskusikan isu-isu anti penyimpangan, korupsi, dan upaya peningkatan transparansi',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -46,8 +46,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="font-sans antialiased">
+    <html lang="id" className={`${geistSans.variable} ${geistMono.variable} bg-background`}>
+      <body className="font-sans antialiased bg-background text-foreground">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
