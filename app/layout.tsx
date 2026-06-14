@@ -12,6 +12,18 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'Forum Anti Penyimpangan - Komunitas Transparansi dan Integritas',
   description: 'Platform forum komunitas untuk berbagi, melaporkan, dan mendiskusikan isu-isu anti penyimpangan, korupsi, dan upaya peningkatan transparansi',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3003'),
+  openGraph: {
+    title: 'Forum Anti Penyimpangan',
+    description: 'Komunitas diskusi anti penyimpangan dan korupsi',
+    url: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3003',
+    siteName: 'Forum Anti Penyimpangan',
+    locale: 'id_ID',
+    type: 'website',
+  },
+  alternates: {
+    canonical: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3003',
+  },
   generator: 'v0.app',
   icons: {
     icon: [
